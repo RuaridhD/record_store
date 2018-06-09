@@ -22,6 +22,6 @@ beforeEach(function(){
 
   it('should be able to sell a record and adjust store balance accordingly', function(){
     recordStore.sellRecord(record1);
+    assert.strictEqual(recordStore.balance, 254.99);
     assert.strictEqual(recordStore.inventory.length, 1);
-    assert.strictEqual(recordStore.balance, 259.99);
   })

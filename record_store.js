@@ -11,4 +11,12 @@ RecordStore.prototype.addToInventory = function(record){
   this.inventory.push(record);
 };
 
+RecordStore.prototype.listInventory = function(){
+  result = []
+  this.inventory.forEach(record => {
+    result.push(record.toString())
+  });
+  return result.toString();
+};
+
 module.exports = RecordStore;

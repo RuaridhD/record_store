@@ -1,4 +1,5 @@
 const Record = require('./record.js');
+const Customer = require('./customer.js');
 
 const RecordStore = function(name, city, balance){
   this.name = name;

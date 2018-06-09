@@ -27,8 +27,13 @@ RecordStore.prototype.sellRecord = function(record){
       this.inventory.splice(idx, 1);
     }
   });
-  console.log(this.inventory);
-
 }
 
+RecordStore.prototype.calculateTotalValue = function(){
+  var total = 0;
+  this.inventory.forEach(item => {
+    total += item.price;
+  })
+  return this.balance + total;
+}
 module.exports = RecordStore;

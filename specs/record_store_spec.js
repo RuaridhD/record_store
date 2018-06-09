@@ -25,3 +25,7 @@ beforeEach(function(){
     assert.strictEqual(recordStore.balance, 254.99);
     assert.strictEqual(recordStore.inventory.length, 1);
   })
+
+  it('should be able to report financial situation of store - till balance and stock value', function(){
+    assert.strictEqual(recordStore.calculateTotalValue(), 261.98);
+  })

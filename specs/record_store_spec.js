@@ -29,3 +29,9 @@ beforeEach(function(){
   it('should be able to report financial situation of store - till balance and stock value', function(){
     assert.strictEqual(recordStore.calculateTotalValue(), 261.98);
   })
+
+  it('should be able to view all records of a given genre', function(){
+    record3 = new Record('Darude', 'Sandstorm', 'Uncategorisable', 0.10);
+    recordStore.addToInventory(record3);
+    assert.strictEqual(recordStore.recordsByGenre('Rock'), 2);
+  })

@@ -36,4 +36,16 @@ RecordStore.prototype.calculateTotalValue = function(){
   })
   return this.balance + total;
 }
+
+RecordStore.prototype.recordsByGenre = function(givenGenre){
+  genreArray = []
+  this.inventory.forEach(item => {
+    if (item.genre === givenGenre){
+      genreArray.push(item);
+    }
+  })
+  return genreArray.length;
+}
+
+
 module.exports = RecordStore;

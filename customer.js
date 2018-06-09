@@ -9,7 +9,7 @@ const Customer = function(name, cash){
 
 Customer.prototype.buyRecord = function(record){
   this.records.push(record);
-  this.cash += record.price;
+  this.cash -= record.price;
 }
 
 Customer.prototype.sellRecord = function(record){

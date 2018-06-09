@@ -12,4 +12,14 @@ Customer.prototype.buyRecord = function(record){
   this.cash += record.price;
 }
 
+Customer.prototype.sellRecord = function(record){
+  var idx = this.records.indexOf(record);
+  this.records.forEach(item => {
+    if (item === record) {
+      this.cash += record.price;
+      this.records.splice(idx, 1);
+    }
+  });
+}
+
 module.exports = Customer;

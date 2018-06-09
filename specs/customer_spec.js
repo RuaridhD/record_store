@@ -17,3 +17,9 @@ it('should be able to buy records', function(){
   customer1.buyRecord(record1);
   assert.strictEqual(1, customer1.records.length);
 })
+
+it('should be able to sell records', function(){
+  customer1.records.push(record1);
+  customer1.sellRecord(record1);
+  assert.strictEqual(0, customer1.records.length);
+})

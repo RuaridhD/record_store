@@ -49,6 +49,20 @@ Customer.prototype.viewMostValuableRecord = function(){
   return this.records[0].price;
 }
 
+Customer.prototype.sortByAscendingValue = function(){
+  this.records.sort(function(lowest, highest){
+    return highest.price - lowest.price;
+  })
+  return this.records
+}
+
+Customer.prototype.sortByDescendingValue = function(){
+  this.records.sort(function(lowest, highest){
+    return lowest.price - highest.price;
+  })
+  return this.records
+}
+
 
 
 

@@ -54,5 +54,5 @@ it('should be able to view the total value of all records of a given Genre', fun
   customer1.buyRecord(record1);
   customer1.buyRecord(record2);
   customer1.buyRecord(record3);
-  assert.strictEqual(customer1.viewTotalRecordValueByGenre("rock"), 11.98);
+  assert.strictEqual(customer1.viewTotalRecordValueByGenre("Rock"), 11.98);
 })

@@ -32,4 +32,14 @@ Customer.prototype.viewTotalRecordValue = function(){
   return total;
 };
 
+Customer.prototype.viewTotalRecordValueByGenre = function(recordGenre){
+  var total = 0;
+  this.records.forEach(item => {
+    if (item.genre === recordGenre){
+    total += item.price;
+  }
+})
+  return total;
+};
+
 module.exports = Customer;

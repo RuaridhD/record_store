@@ -42,4 +42,14 @@ Customer.prototype.viewTotalRecordValueByGenre = function(recordGenre){
   return total;
 };
 
+Customer.prototype.viewMostValuableRecord = function(){
+  this.records.sort(function(lowest, highest){
+    return highest.price - lowest.price;
+  })
+  return this.records[0].price;
+}
+
+
+
+
 module.exports = Customer;

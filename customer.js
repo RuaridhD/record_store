@@ -63,6 +63,22 @@ Customer.prototype.sortByDescendingValue = function(){
   return this.records
 }
 
+Customer.prototype.compareValueOfCollection = function(comparedCustomer){
+  var customerComparison = [];
+  var result1 = this.viewTotalRecordValue();
+  var result2 = comparedCustomer.viewTotalRecordValue();
+  customerComparison.push(result1);
+  customerComparison.push(result2);
+  customerComparison.sort(function(lowest, highest){
+    return highest.price - lowest.price;
+  })
+  if (customerComparison[0]=== result1){
+    return this.name + " has the highest valued collection at " + this.viewTotalRecordValue();
+  } else {
+    return comparedCustomer.name + " has the highest valued collection at " + comparedCustomer.viewTotalRecordValue();
+  }
+}
+
 
 
 

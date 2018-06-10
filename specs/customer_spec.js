@@ -87,3 +87,14 @@ it('should be able to sort their records by descending value', function(){
   assert.strictEqual(customer1.records[0].price, 1.00);
   assert.strictEqual(customer1.records[2].price, 6.99);
 })
+
+it('should be able to compare the value of their collection with another record collector', function(){
+  customer1.cash = 20;
+  record3 = new Record('Darude', 'Sandstorm', 'Uncategorisable', 1.00);
+  customer1.buyRecord(record1);
+  customer1.buyRecord(record2);
+  customer1.buyRecord(record3);
+  customer2 = new Customer("Bob", 50);
+  customer2.buyRecord(record2);
+  assert.strictEqual(customer1.compareValueOfCollection(customer2), "Adam has the highest valued collection at 12.98");
+})

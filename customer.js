@@ -8,9 +8,11 @@ const Customer = function(name, cash){
 }
 
 Customer.prototype.buyRecord = function(record){
+  if (record.price <= this.cash){
   this.records.push(record);
   this.cash -= record.price;
 }
+};
 
 Customer.prototype.sellRecord = function(record){
   var idx = this.records.indexOf(record);
@@ -19,7 +21,15 @@ Customer.prototype.sellRecord = function(record){
       this.cash += record.price;
       this.records.splice(idx, 1);
     }
-  });
-}
+  })
+};
+
+Customer.prototype.viewTotalRecordValue = function(){
+  var total = 0;
+  this.records.forEach(item => {
+    total += item.price;
+  })
+  return total;
+};
 
 module.exports = Customer;

@@ -35,3 +35,24 @@ it('should have cash increase when selling record', function(){
   customer1.sellRecord(record1);
   assert.strictEqual(9.99, Number(customer1.cash.toFixed(2)));
 })
+
+it('shouldnt be able to buy records they cant afford', function(){
+  customer1.buyRecord(record2);
+  assert.strictEqual(customer1.records.length, 0);
+})
+
+it('should be able to view the total value of their collection', function(){
+  customer1.cash = 20;
+  customer1.buyRecord(record2);
+  customer1.buyRecord(record1);
+  assert.strictEqual(customer1.viewTotalRecordValue(), 11.98);
+})
+
+it('should be able to view the total value of all records of a given Genre', function(){
+  customer1.cash = 20;
+  record3 = new Record('Darude', 'Sandstorm', 'Uncategorisable', 1.00);
+  customer1.buyRecord(record1);
+  customer1.buyRecord(record2);
+  customer1.buyRecord(record3);
+  assert.strictEqual(customer1.viewTotalRecordValueByGenre("rock"), 11.98);
+})
